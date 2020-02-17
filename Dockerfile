@@ -12,7 +12,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && export MAKEFLAGS=-j$(nproc) \
     && cpanm --notest Perl::Critic Perl::Tidy \
     && rm -r /root/.cpanm \
-    && pip3 install black flake8 flake8-bugbear \
+    && pip3 install -Ur https://raw.githubusercontent.com/scop/bash-completion/master/test/requirements.txt \
     && rm -r /root/.cache/pip \
     && mkdir /work
 
