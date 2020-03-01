@@ -15,6 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && rm -r /root/.cpanm \
     && pip3 install -Ur https://raw.githubusercontent.com/scop/bash-completion/master/test/requirements.txt \
     && rm -r /root/.cache/pip \
+    && pre-commit install-hooks \
     && mkdir /work
 
 WORKDIR /work
