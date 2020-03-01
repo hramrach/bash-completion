@@ -15,7 +15,12 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && rm -r /root/.cpanm \
     && pip3 install -Ur https://raw.githubusercontent.com/scop/bash-completion/master/test/requirements.txt \
     && rm -r /root/.cache/pip \
+    && tmpdir=$(mktemp -d) \
+    && cd $tmpdir \
+    && git init . \
+    && python3 -c "from urllib.request import urlretrieve; urlretrieve('https://raw.githubusercontent.com/scop/bash-completion/master/.pre-commit-config.yaml', './.pre-commit-config.yaml')" \
     && pre-commit install-hooks \
-    && mkdir /work
+    && cd - \
+    && rm -r $tmpdir
 
 WORKDIR /work
