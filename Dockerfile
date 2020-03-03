@@ -13,7 +13,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && export MAKEFLAGS=-j$(nproc) \
     && cpanm --notest Perl::Critic \
     && rm -r /root/.cpanm \
-    && pip3 install -Ur https://raw.githubusercontent.com/scop/bash-completion/master/test/requirements.txt \
+    && pip3 install -Ur https://raw.githubusercontent.com/scop/bash-completion/master/test/requirements-dev.txt \
     && rm -r /root/.cache/pip \
     && tmpdir=$(mktemp -d) \
     && cd $tmpdir \
